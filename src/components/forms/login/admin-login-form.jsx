@@ -12,33 +12,43 @@ export default function AdminLoginForm() {
         password: "",
     })
 
-    const onUsernameChange = (event) => { 
+    const onUsernameChange = (event) => {
         setUser(user => {
-            return {...user, username: event.target.value}
+            return { ...user, username: event.target.value }
         });
     }
 
-    const onPasswordChange = (event) => { 
+    const onPasswordChange = (event) => {
         setUser(user => {
-            return {...user, password: event.target.value}
+            return { ...user, password: event.target.value }
         });
-    } 
+    }
 
     return (
         <Box sx={boxStyle}>
-            <UsernameInput username={user.username} onTextChange={onUsernameChange}/>
-            <PasswordInput password={user.password} onPasswordChange={onPasswordChange}/>
-            <LoginButton />
+            <Box sx={inputBoxStyle}>
+                <UsernameInput username={user.username} onTextChange={onUsernameChange} />
+            </Box>
+            <Box sx={inputBoxStyle}>
+                <PasswordInput password={user.password} onPasswordChange={onPasswordChange} />
+            </Box>
+            <Box sx={inputBoxStyle}>
+                <LoginButton />
+            </Box>
         </Box>
     )
 
 }
 
-const boxStyle = { 
-    display:"flex",
-    justifyContent:"center",
-    alignItems:"center",
-    flexDirection:"column",
+const boxStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "column",
+}
+
+const inputBoxStyle = {
+    margin: 2,
 }
 
 
